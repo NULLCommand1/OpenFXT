@@ -541,17 +541,20 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       function changeBackground() {
-        const screenWidth = $(window).width();
-        const backgroundUrl = 'url("images/background1.jpg")';
+        var screenWidth = $(window).width();
 
-        $('#bg1').css('background-image', backgroundUrl);
+        var mobileBackgroundUrl = 'url("images/background1.jpg")';
+        var desktopBackgroundUrl = 'url("images/background1.jpg")';
 
         if (screenWidth <= 1400) {
+          $('#bg1').css('background-image', mobileBackgroundUrl);
+
           $("#optionsfxt").css({
             "left": "4%",
             "bottom": "-99px"
           });
         } else {
+          $('#bg1').css('background-image', desktopBackgroundUrl);
           $("#optionsfxt").css({
             "left": "73%",
             "bottom": "7rem"
@@ -559,8 +562,11 @@
         }
       }
 
-      $(window).on('resize', changeBackground);
       changeBackground();
+
+      $(window).resize(function () {
+        changeBackground();
+      });
     </script>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
