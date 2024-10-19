@@ -122,8 +122,7 @@
                                 name="home-outline"></ion-icon></a>
                           </li>
                           <li style=" --i: 1; --color: #fee800;"><a target="_blank"
-                              href="https://www.tiktok.com/@nullcommad1"><ion-icon
-                                name="logo-tiktok"></ion-icon></a>
+                              href="https://www.tiktok.com/@nullcommad1"><ion-icon name="logo-tiktok"></ion-icon></a>
                           </li>
                           <li style=" --i: 2; --color: #04fc43;"><a href="#page5"><ion-icon
                                 name="school-outline"></ion-icon></a>
@@ -574,6 +573,24 @@
         <p>-- Collected by Admin Nguyễn Hữu Tài --</p>
       </div>
     </div>
+    <audio id="audioElement" controls>
+      <source src="https://getstream-openfxt.vercel.app/getStream" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ phần tử âm thanh.
+    </audio>
+    <script>
+      const audioElement = document.getElementById('audioElement');
+      let isPlaying = false;
+      const playAudio = () => {
+        if (!isPlaying) {
+          audioElement.play();
+          isPlaying = true;
+          window.removeEventListener('click', playAudio);
+          window.removeEventListener('scroll', playAudio);
+        }
+      };
+      window.addEventListener('click', playAudio);
+      window.addEventListener('scroll', playAudio);
+    </script>
     <!-- <script>
       window.onload = function () {
         var modal = document.getElementById("customModal");
@@ -592,7 +609,6 @@
         }
       };
     </script> -->
-    <script src="js/theme_music.js"></script>
 </body>
 
 </html>
